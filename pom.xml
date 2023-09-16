@@ -53,7 +53,7 @@
   </dependencies>
 
   <build>
-    <finalName>basic_struts</finalName>
+    <finalName>basic-struts</finalName>
 
     <plugins>
       <plugin>
