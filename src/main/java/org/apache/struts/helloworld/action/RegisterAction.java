@@ -1,16 +1,15 @@
 package org.apache.struts.helloworld.action;
 
-import com.opensymphony.xwork2.Action;
+import com.opensymphony.xwork2.ActionSupport;
 
-public class RegisterAction implements Action {
+public class RegisterAction extends ActionSupport {
 
     String firstName;
     String lastName;
     String gender;
-    String age;
+    Integer age;
     String email;
 
-    @Override
     public String execute() throws Exception {
         System.out.println("execute() method called");
         return SUCCESS;
@@ -40,11 +39,11 @@ public class RegisterAction implements Action {
         this.gender = gender;
     }
 
-    public String getAge() {
+    public Integer getAge() {
         return age;
     }
 
-    public void setAge(String age) {
+    public void setAge(Integer age) {
         this.age = age;
     }
 
@@ -54,6 +53,30 @@ public class RegisterAction implements Action {
 
     public void setEmail(String email) {
         this.email = email;
+    }
+
+    // ActionSupport provides the Interceptor component for validation so that all fields can be validated at once within the validate() method:
+    // - We use the addFieldError() method to add an error message for a specific field.
+    public void validate() {
+        if (firstName == null || firstName.trim().isEmpty()) {
+            addFieldError("firstName", "First name is required.");
+        }
+
+        if (lastName == null || lastName.trim().isEmpty()) {
+            addFieldError("lastName", "Last name is required.");
+        }
+
+        if (gender == null) {
+            addFieldError("gender", "Gender is required.");
+        }
+
+        if (age == null || age < 18) {
+            addFieldError("age", "Age is required and must be 18 or older");
+        }
+
+        if (email == null || email.trim().isEmpty()) {
+            addFieldError("email", "Email is required.");
+        }
     }
 
 }

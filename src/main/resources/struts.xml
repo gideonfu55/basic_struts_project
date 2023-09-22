@@ -22,6 +22,7 @@
 
         <action name="registerAction" class="org.apache.struts.helloworld.action.RegisterAction">
             <result name="success">/RegisterConfirmation.jsp</result>
+            <result name="input">/registration.jsp</result>
         </action>
     </package>
 
