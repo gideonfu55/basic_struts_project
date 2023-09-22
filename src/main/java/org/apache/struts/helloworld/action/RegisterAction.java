@@ -57,26 +57,27 @@ public class RegisterAction extends ActionSupport {
 
     // ActionSupport provides the Interceptor component for validation so that all fields can be validated at once within the validate() method:
     // - We use the addFieldError() method to add an error message for a specific field.
-    public void validate() {
-        if (firstName == null || firstName.trim().isEmpty()) {
-            addFieldError("firstName", "First name is required.");
-        }
-
-        if (lastName == null || lastName.trim().isEmpty()) {
-            addFieldError("lastName", "Last name is required.");
-        }
-
-        if (gender == null) {
-            addFieldError("gender", "Gender is required.");
-        }
-
-        if (age == null || age < 18) {
-            addFieldError("age", "Age is required and must be 18 or older");
-        }
-
-        if (email == null || email.trim().isEmpty()) {
-            addFieldError("email", "Email is required.");
-        }
-    }
+    // - This is one of the ways to add validation for form fields.
+//    public void validate() {
+//        if (firstName == null || firstName.trim().isEmpty()) {
+//            addFieldError("firstName", "First name is required.");
+//        }
+//
+//        if (lastName == null || lastName.trim().isEmpty()) {
+//            addFieldError("lastName", "Last name is required.");
+//        }
+//
+//        if (gender == null) {
+//            addFieldError("gender", "Gender is required.");
+//        }
+//
+//        if (age == null || age < 18) {
+//            addFieldError("age", "Age is required and must be 18 or older");
+//        }
+//
+//        if (email == null || email.trim().isEmpty()) {
+//            addFieldError("email", "Email is required.");
+//        }
+//    }
 
 }

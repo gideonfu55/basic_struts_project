@@ -6,6 +6,7 @@
 <struts>
 
     <constant name="struts.devMode" value="true" />
+    <constant name="struts.custom.i18n.resources" value="RegisterAction-validation.xml" />
 
     <package name="basicstruts2" extends="struts-default">
         <action name="index">
@@ -16,13 +17,13 @@
             <result name="success">/HelloWorld.jsp</result>
         </action>
 
-        <action name="register">
-            <result>/registration.jsp</result>
+        <action name="register" class="org.apache.struts.helloworld.action.RegisterAction" method="input">
+            <result name="input">/registration.jsp</result>
         </action>
 
-        <action name="registerAction" class="org.apache.struts.helloworld.action.RegisterAction">
-            <result name="success">/RegisterConfirmation.jsp</result>
+        <action name="registerAction" class="org.apache.struts.helloworld.action.RegisterAction" method="execute">
             <result name="input">/registration.jsp</result>
+            <result name="success">/RegisterConfirmation.jsp</result>
         </action>
     </package>
 
